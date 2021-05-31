@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="robots" content="noindex, nofollow" />
+		<meta name="http-equiv" content="X-Robots-Tag : noindex, nofollow" />
+		<meta name="googlebot" content="noindex, nofollow" />
+		<meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate, max-age=0"/>
+		<meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta name="application-name" content="TripleCryptoOpenSSL&PrivateRecursiveHashSystem" />
+		
+		<title>Doble criptografía OpenSSL privada + Hash recursivo @ YeCoHo</title>
+		<script src="jquery-lastest.min.js"></script>
+		<script src="base64_code.js"></script>
+		<script src="main.js"></script>
+	</head>
+
+	<body>
+		<style>
+			.break-word{
+				text-align: center;
+				-ms-word-break: break-all;
+				-ms-word-wrap: break-all;
+				-webkit-word-break: break-word;
+				-webkit-word-wrap: break-word;
+				word-break: break-word;
+				word-wrap: break-word;
+				-webkit-hyphens: auto;
+				-moz-hyphens: auto;
+				hyphens: auto;
+			}
+			.container{
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 20px;
+				text-align: center;
+			}
+			.show, .3decrypt{
+				margin-left: auto;
+				margin-right: auto;
+				text-align: center;
+				width: 75%;
+			}
+			.hide{
+				display: none;
+			}
+			h4, h5{
+				margin: 10px;
+			}
+			.info{
+				font-size: 10px;
+				margin: 2px;
+			}
+		</style>
+		<div class="container">
+				<h5>Cifrado con clave aleatoria <button id="button_2crypt_on">Mostrar</button><button id="button_2crypt_off" class="hide">Ocultar</button></h5> 
+				<span id="2crypt_" class="hide">
+			<form action="" method="post" id="form_2crypt">
+				<input id="input" type="text" pattern="[a-zA-Z0-9-_]{1,150}" name="input_2crypt" placeholder="Texto a cifrar" required />
+				<input type="submit" class="button" value="Cifrar" /> <br/>
+				<p class="info">Formato de salida -> $01$64$ <em>(64bytes por defecto)</em></p>
+			</form></span>
+				<h5>Cifrado con clave aleatoria de longitud definida <button id="button_2crypt_0_on">Mostrar</button><button id="button_2crypt_0_off" class="hide">Ocultar</button></h5> 
+				<span id="2crypt_0" class="hide">
+			<form action="" method="post" id="form_2crypt_0">
+				<input id="input_0" type="text" pattern="[a-zA-Z0-9-_]{1,150}" name="input_2crypt" placeholder="Texto a cifrar" required />
+				<input id="input_size_0" type="text" pattern="[0-9]{1,15}" name="input_size_0" size="5" placeholder="Tamaño clave aleatoria" required />
+				<input type="submit" class="button" value="Cifrar" /> <br/>
+				<p class="info">Formato de salida -> $01$<i>longitud_clave</i>$ <em>(64bytes mínimo)</em></p>
+			</form></span>
+				<h5>Cifrado con clave propia <button id="button_2crypt_1_on">Mostrar</button><button id="button_2crypt_1_off" class="hide">Ocultar</button></h5> 
+				<span id="2crypt_1" class="hide">
+			<form action="" method="post" id="form_2crypt_1">
+				<input id="input_1" type="text" pattern="[a-zA-Z0-9-_]{1,150}" name="input_2crypt" placeholder="Texto a cifrar" required />
+				<input id="input_pass_1" type="text" pattern="[a-zA-Z0-9-_]{1,150}" name="input_pass_2crypt" placeholder="Clave" required />
+				<input type="submit" class="button" value="Cifrar" /> <br/>
+				<p class="info">Formato de salida -> $00$00$</p>
+			</form></span>
+				<h5>Cifrado con clave propia + fragmento aleatorio <button id="button_2crypt_2_on">Mostrar</button><button id="button_2crypt_2_off" class="hide">Ocultar</button></h5> 
+				<span id="2crypt_2" class="hide">
+			<form action="" method="post" id="form_2crypt_2">
+				<input id="input_2" type="text" pattern="[a-zA-Z0-9-_]{1,150}" name="input_2crypt" placeholder="Texto a cifrar" required />
+				<input id="input_pass_2" type="text" pattern="[a-zA-Z0-9-_]{1,150}" name="input_pass_2crypt" placeholder="Clave" required />
+				<input id="input_size_2" type="text" pattern="[0-9]{1,15}" name="input_size_2" size="5" placeholder="Tamaño clave aleatoria" required />
+				<input type="submit" class="button" value="Cifrar" /> <br/>
+				<p class="info">Formato de salida -> $00$<i>longitud_clave</i>$</p>
+			</form></span>
+			<div class="show">
+				<h4>Hash</h4>
+				<div id="hash" class="break-word">
+
+				</div>
+			</div>
+			<div class="show">
+				<h4>Resultado encriptado</h4>
+				<div id="2crypt" class="break-word">
+
+				</div>
+			</div>
+			<div class="show hide">
+				<h4>Proceso de encriptado <button class="button_debug_2crypt_on">Mostrar</button><button class="button_debug_2crypt_off hide">Ocultar</button></h4>
+				<div id="debug_2crypt" class="break-word hide">
+
+				</div>
+			</div>
+			<div class="2decrypt hide">
+				<h4>Resultado desencriptado</h4>
+				<div id="2decrypt" class="break-word">
+
+				</div>
+			<form action="" method="post" id="form_2decrypt">
+				<input id="input_2decrypt" type="text" name="input_2decrypt" hidden/>
+				<input id="input_pass_2decrypt" type="text" name="input_pass_2decrypt" hidden/>
+			</form>
+				<h4>Proceso de desencriptado <button class="button_debug_2decrypt_on">Mostrar</button><button class="button_debug_2decrypt_off hide">Ocultar</button></h4>
+				<div id="debug_2decrypt" class="break-word hide">
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
