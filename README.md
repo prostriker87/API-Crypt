@@ -9,7 +9,7 @@ Instructions
 
 Add <script src="Insane_Crypt.js"></script>
 
-4 kind of ciphers (use form of your choice)
+4 kind of ciphers (use form of your choice, look raw code)
 
 <h5>Cifrado con clave aleatoria</h5> 
   <form action="" method="post" id="form_2crypt">
@@ -44,7 +44,7 @@ Add <script src="Insane_Crypt.js"></script>
   </form>
 
 
- And this form to decrypt
+ And this form to decrypt (look raw code)
 
 
   <form action="" method="post" id="form_2decrypt">
