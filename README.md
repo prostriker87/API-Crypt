@@ -45,14 +45,18 @@ Add <script src="Insane_Crypt.js"></script>
 
 
  And this form to decrypt (look raw code)
- It selects automatically the decrypt method than he needs based on the header $00$ or $01$
- And can be empty password or not included if don't needed
 
 
   <form action="" method="post" id="form_2decrypt">
     <input id="input_2decrypt" type="text" name="input_2decrypt" hidden/>
     <input id="input_pass_2decrypt" type="text" name="input_pass_2decrypt" hidden/>
   </form>
+  
+  
+
+ It selects automatically the decrypt method than he needs based on the header $00$ or $01$
+ 
+ And can be empty password or not included if don't needed
 
 
 
