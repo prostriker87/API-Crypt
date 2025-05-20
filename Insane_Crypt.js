@@ -3,7 +3,7 @@ $(document).on('submit','#form_2crypt',function(event){
 	var fd = new FormData();    
 	fd.append('input_2crypt',$("#input").val());
 	$.ajax({
-		url: 'https://taldiscom.es/API-Crypt/public/remote/API-crypto.php?2crypt',
+		url: 'https://cryptography.securitytactics.com/API-Crypo/remote/API-crypto.php?2crypt',
 		type: 'POST',
         data: fd,
         processData: false,
@@ -41,7 +41,7 @@ $(document).on('submit','#form_2crypt_0',function(event){
 	fd.append('input_2crypt',$("#input_0").val());
 	fd.append('input_size_2crypt',$("#input_size_0").val());
 	$.ajax({
-		url: 'https://taldiscom.es/API-Crypt/public/remote/API-crypto.php?2crypt',
+		url: 'https://cryptography.securitytactics.com/API-Crypt/public/remote/API-crypto.php?2crypt',
 		type: 'POST',
         data: fd,
         processData: false,
@@ -79,7 +79,7 @@ $(document).on('submit','#form_2crypt_1',function(event){
 	fd.append('input_2crypt',$("#input_1").val());
 	fd.append('input_pass_2crypt',$("#input_pass_1").val());
 	$.ajax({
-		url: 'https://taldiscom.es/API-Crypt/public/remote/API-crypto.php?2crypt',
+		url: 'https://cryptography.securitytactics.com/API-Crypt/public/remote/API-crypto.php?2crypt',
 		type: 'POST',
         data: fd,
         processData: false,
@@ -118,7 +118,7 @@ $(document).on('submit','#form_2crypt_2',function(event){
 	fd.append('input_pass_2crypt',$("#input_pass_2").val());
 	fd.append('input_size_2crypt',$("#input_size_2").val());
 	$.ajax({
-		url: 'https://taldiscom.es/API-Crypt/public/remote/API-crypto.php?2crypt',
+		url: 'https://cryptography.securitytactics.com/API-Crypt/public/remote/API-crypto.php?2crypt',
 		type: 'POST',
         data: fd,
         processData: false,
@@ -155,7 +155,7 @@ $(document).on('submit','#form_2decrypt',function(event){
 	fd.append('input_2decrypt',$("#input_2decrypt").val());
 	fd.append('input_pass_2decrypt',$("#input_pass_2decrypt").val());
 	$.ajax({
-		url: 'https://taldiscom.es/API-Crypt/public/remote/API-crypto.php?2decrypt',
+		url: 'https://cryptography.securitytactics.com/API-Crypt/public/remote/API-crypto.php?2decrypt',
 		type: 'POST',
         data: fd,
         processData: false,
